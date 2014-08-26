@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :records
+
+  root 'generator#generator_form'
+
+  post 'generate' => 'generator#generate', as: :generate
+  delete 'clean' => 'generator#clean', as: :clean
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -15,6 +15,12 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'therubyracer',  platforms: :ruby
 # Nice templates
 gem 'slim-rails'
+# hierarchy
+gem 'closure_tree'
+# random data
+gem 'faker'
+
+gem "activerecord-import", ">= 0.4.0"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -23,10 +29,13 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
-# Tests
-gem 'rspec-rails'
 # Server
 gem 'puma'
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+end
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

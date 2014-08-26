@@ -1,0 +1,43 @@
+h1 welcome to generator!
+
+div.stats
+  h4 stats:
+  | users:
+  = User.count
+  br
+  | records:
+  = Record.count
+  br
+  | comments:
+  = Comment.count
+  br
+  br
+
+- if flash[:notice]
+  .alert.alert-success #{flash[:notice]}
+  br
+  br
+
+= link_to 'cleanup!', :clean, method: :delete
+br
+br
+
+= form_tag :generate do |f|
+  div.field
+    = label_tag :users_count
+    br
+    = number_field_tag :users_count
+  div.field
+    = label_tag :records_count
+    br
+    = number_field_tag :records_count
+  div.field
+    = label_tag :comments_count
+    br
+    = number_field_tag :comments_count
+  div.field
+    = label_tag :comments_depth
+    br
+    = number_field_tag :comments_depth
+  div.actions
+    = submit_tag

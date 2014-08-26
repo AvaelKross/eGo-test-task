@@ -1,0 +1,15 @@
+p#notice = notice
+
+p
+  strong Owner:
+  = @record.owner_id
+p
+  strong Title:
+  = @record.title
+p
+  strong Body:
+  = @record.body
+
+= link_to 'Edit', edit_record_path(@record)
+'|
+= link_to 'Back', records_path
