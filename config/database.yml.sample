@@ -1,0 +1,18 @@
+defaults: &defaults
+  adapter: postgresql
+  encoding: unicode
+  reconnect: false
+  pool: 5
+  host: localhost
+
+development:
+  <<: *defaults
+  database: ego_task_development
+  username: 
+  password: 
+
+test:
+  <<: *defaults
+  database: ego_task_test
+  username: 
+  password: 
