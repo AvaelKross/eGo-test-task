@@ -9,9 +9,9 @@ class GeneratorController < ApplicationController
   end
 
   def clean
-    Comment.destroy_all
-    Record.destroy_all
-    User.destroy_all
+    Comment.delete_all
+    Record.delete_all
+    User.delete_all
     redirect_to :root, notice: 'successfully cleaned up!'
   end
 
