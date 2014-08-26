@@ -21,12 +21,11 @@ class Generator
 
     def self.generate_records(count)
       user_ids = User.all.pluck(:id)
-      columns = ['title', 'body', 'owner_id']
       records = []
       count.times do
-        records << [Faker::Lorem.sentence, Faker::Lorem.paragraph, user_ids.sample]
+        records.push "('#{Faker::Lorem.sentence}', '#{Faker::Lorem.paragraph}', #{user_ids.sample})"
       end
-      Record.import columns, records, validate: false
+      Record.connection.execute "INSERT INTO records (title, body, owner_id) VALUES #{records.join(", ")}"
       records.count
     end
 
