@@ -4,8 +4,11 @@ class GeneratorController < ApplicationController
   end
 
   def generate
-    result = Generator.generate(params[:users_count].to_i,params[:records_count].to_i,params[:comments_count].to_i,params[:comments_depth].to_i)
-    redirect_to :root, notice: result
+    result = nil
+    time = Benchmark.ms do
+      result = Generator.generate(params[:users_count].to_i,params[:records_count].to_i,params[:comments_count].to_i,params[:comments_depth].to_i)
+    end
+    redirect_to :root, notice: result+", time spent: #{time}"
   end
 
   def clean

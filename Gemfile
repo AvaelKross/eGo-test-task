@@ -17,10 +17,6 @@ gem 'therubyracer',  platforms: :ruby
 gem 'slim-rails'
 # hierarchy
 gem 'closure_tree'
-# random data
-gem 'faker'
-
-gem "activerecord-import", ">= 0.4.0"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
